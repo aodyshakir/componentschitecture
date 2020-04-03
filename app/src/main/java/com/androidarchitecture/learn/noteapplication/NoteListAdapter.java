@@ -44,7 +44,7 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.NoteVi
 
         if (mNotes != null) {
             Note note = mNotes.get(position);
-            holder.setData(note.getNote(), position);
+            holder.noteItemView.setText(note.getNote());
             holder.setListeners();
         } else {
             // Covers the case of data not being ready yet.
@@ -73,14 +73,15 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.NoteVi
         public NoteViewHolder(View itemView) {
             super(itemView);
             noteItemView = itemView.findViewById(R.id.txvNote);
-            imgDelete 	 = itemView.findViewById(R.id.ivRowDelete);
+            imgDelete	 = itemView.findViewById(R.id.ivRowDelete);
             imgEdit 	 = itemView.findViewById(R.id.ivRowEdit);
         }
 
-        public void setData(String note, int position) {
+      /** public void setData(String note, int position) {
             noteItemView.setText(note);
             mPosition = position;
-        }
+        } **/
+
 
         public void setListeners() {
             imgEdit.setOnClickListener(new View.OnClickListener() {
